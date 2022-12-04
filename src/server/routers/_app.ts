@@ -1,3 +1,4 @@
+import customerRouter from '@/server/routers/customer'
 import { procedure, router } from '@/server/trpc'
 import { z } from 'zod'
 
@@ -13,9 +14,7 @@ export const appRouter = router({
                 greeting: `hello ${input.text}`,
             }
         }),
-    getCustomers: procedure.query(async () => {
-        return await prisma?.customer.findMany()
-    }),
+    customer: customerRouter,
 })
 
 // export type definition of API
