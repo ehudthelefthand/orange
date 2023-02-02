@@ -9,17 +9,19 @@ async function main() {
             {
                 firstName: 'Peerawat',
                 lastName: 'Poombua',
-                mobile: '1234567890',
+                shopName: 'ก๋วยเตี๋ยวเนื้อไส้',
+                contactNumber: '0811234567',
             },
             {
-                firstName: 'Benya',
-                lastName: 'Poombua',
-                mobile: '248590745',
+                nickName: 'พี่หมู',
+                shopName: 'ก๋วยเตี๋ยวเนื้อไส้',
+                contactNumber: '0811234568',
             },
             {
                 firstName: 'Qen',
                 lastName: 'Kung',
-                mobile: '9243729874',
+                shopName: 'ลาบอุดร',
+                contactNumber: '0811234569',
             },
         ],
     })
