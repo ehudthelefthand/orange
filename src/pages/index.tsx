@@ -1,4 +1,42 @@
 import Head from 'next/head'
+import React from 'react'
+
+type TextFieldProps = {
+    label: string
+    fieldname: string
+}
+
+const TextField = ({ label, fieldname }: TextFieldProps) => {
+    return (
+        <div className="w-full flex flex-col mb-3">
+            <label className="mb-1" htmlFor={fieldname}>
+                {label}
+            </label>
+            <input
+                className="border-2 border-gray-900 rounded h-12 px-3 py-2"
+                type="text"
+                id={fieldname}
+                name={fieldname}
+            />
+        </div>
+    )
+}
+
+const MobileField = ({ label, fieldname }: TextFieldProps) => {
+    return (
+        <div className="w-full flex flex-col mb-3">
+            <label className="mb-1" htmlFor={fieldname}>
+                {label}
+            </label>
+            <input
+                className="border-2 border-gray-900 rounded h-12 px-3 py-2"
+                type="tel"
+                id={fieldname}
+                name={fieldname}
+            />
+        </div>
+    )
+}
 
 export default function Home() {
     return (
@@ -9,71 +47,23 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className="flex flex-col w-screen h-screen bg-gray-200">
-                <main className="">
-                    <div className="flex flex-col space-y-4 max-w-xl mx-auto mt-16">
-                        <h1 className="text-xl font-bold">ข้อมูลลูกค้า</h1>
-                        <div className="flex space-x-4">
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="ชื่อ"
-                            />
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="นามสกุล"
-                            />
-                        </div>
-                        <div className="flex">
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="ชื่อร้าน"
-                            />
-                        </div>
-                        <div className="flex space-x-4">
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="เบอร์โทร"
-                            />
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="ไลน์"
-                            />
-                        </div>
-                        <div className="flex">
-                            <textarea
-                                className="border-2 border-gray-900 rounded h-24 max-h-24 px-3 py-2 w-full"
-                                placeholder="ที่อยู่"
-                            />
-                        </div>
-
-                        <div className="flex space-x-4">
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="ตำบล"
-                            />
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2 w-full"
-                                type="text"
-                                placeholder="จังหวัด"
-                            />
-                        </div>
-                        <div className="flex">
-                            <input
-                                className="border-2 border-gray-900 rounded h-12 px-3 py-2"
-                                type="text"
-                                placeholder="รหัสไปรษณีย์"
-                            />
-                        </div>
-                        <div className="flex justify-end space-x-4">
-                            <button className="border-2 border-gray-900 bg-white rounded h-12 w-24">ยกเลิก</button>
-                            <button className="border-none rounded bg-gray-900 text-white h-12 w-24">บันทึก</button>
-                        </div>
+            <div className="flex flex-col w-screen min-h-screen bg-gray-200">
+                <main className="flex flex-col px-4 pt-4 pb-8">
+                    <h1 className="text-xl font-bold mb-2">ข้อมูลลูกค้า</h1>
+                    <TextField label="ชื่อ" fieldname="firstname" />
+                    <TextField label="นามสกุล" fieldname="lastname" />
+                    <TextField label="ชื่อร้าน" fieldname="shopname" />
+                    <MobileField label="เบอร์โทร" fieldname="tel" />
+                    <TextField label="Line" fieldname="line" />
+                    <TextField label="ที่อยู่" fieldname="address" />
+                    <TextField label="รหัสไปรษณีย์" fieldname="zipcode" />
+                    <TextField label="ตำบล" fieldname="city" />
+                    <TextField label="อำเภอ" fieldname="district" />
+                    <TextField label="จังหวัด" fieldname="province" />
+                    <TextField label="ประเทศ" fieldname="country" />
+                    <div className="flex flex-col space-y-2 mt-4">
+                        <button className="border-none rounded bg-gray-900 text-white h-12 w-full">บันทึก</button>
+                        <button className="border-2 border-gray-900 bg-white rounded h-12 w-full">ยกเลิก</button>
                     </div>
                 </main>
             </div>
