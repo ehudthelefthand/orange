@@ -1,12 +1,16 @@
 import Head from 'next/head'
 import React from 'react'
 
-type TextFieldProps = {
+type BaseFieldProps = FieldProps & {
+    type: string
+}
+
+type FieldProps = {
     label: string
     fieldname: string
 }
 
-const TextField = ({ label, fieldname }: TextFieldProps) => {
+const BaseField = ({ type, label, fieldname }: BaseFieldProps) => {
     return (
         <div className="w-full flex flex-col mb-3">
             <label className="mb-1" htmlFor={fieldname}>
@@ -14,7 +18,7 @@ const TextField = ({ label, fieldname }: TextFieldProps) => {
             </label>
             <input
                 className="border-2 border-gray-900 rounded h-12 px-3 py-2"
-                type="text"
+                type={type}
                 id={fieldname}
                 name={fieldname}
             />
@@ -22,20 +26,12 @@ const TextField = ({ label, fieldname }: TextFieldProps) => {
     )
 }
 
-const MobileField = ({ label, fieldname }: TextFieldProps) => {
-    return (
-        <div className="w-full flex flex-col mb-3">
-            <label className="mb-1" htmlFor={fieldname}>
-                {label}
-            </label>
-            <input
-                className="border-2 border-gray-900 rounded h-12 px-3 py-2"
-                type="tel"
-                id={fieldname}
-                name={fieldname}
-            />
-        </div>
-    )
+const TextField = (props: FieldProps) => {
+    return <BaseField type="text" {...props} />
+}
+
+const MobileField = (props: FieldProps) => {
+    return <BaseField type="tel" {...props} />
 }
 
 export default function Home() {
