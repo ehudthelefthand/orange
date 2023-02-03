@@ -17,7 +17,7 @@ const BaseField = ({ type, label, fieldname }: BaseFieldProps) => {
                 {label}
             </label>
             <input
-                className="border-2 border-gray-900 rounded h-12 px-3 py-2"
+                className="border-1 border-gray-900 rounded h-12 px-3 py-2 shadow"
                 type={type}
                 id={fieldname}
                 name={fieldname}
@@ -57,9 +57,9 @@ export default function Home() {
                     <TextField label="อำเภอ" fieldname="district" />
                     <TextField label="จังหวัด" fieldname="province" />
                     <TextField label="ประเทศ" fieldname="country" />
-                    <div className="flex flex-col space-y-2 mt-4">
-                        <button className="border-none rounded bg-gray-900 text-white h-12 w-full">บันทึก</button>
-                        <button className="border-2 border-gray-900 bg-white rounded h-12 w-full">ยกเลิก</button>
+                    <div className="flex flex-col space-y-3 mt-4">
+                        <button className="rounded bg-gray-900 text-white h-12 w-full shadow">บันทึก</button>
+                        <button className=" border-gray-900 bg-white rounded h-12 w-full shadow">ยกเลิก</button>
                     </div>
                 </main>
             </div>
